@@ -1,4 +1,4 @@
-export const DXList = [
+export const DXList:any[] = [
     {
         "type": "多选题",
         "sort": "906",

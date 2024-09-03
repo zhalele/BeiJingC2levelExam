@@ -119,9 +119,12 @@ const toast = (item: any) => {
 onMounted(() => {
   errList.value = []
 
-  const questionsCopy = [...List, ...DXList];
-  console.log('所有题目：', List.concat(DXList))
-  total.value = List.concat(DXList).length
+  // const questionsCopy = [...List, ...DXList];
+  // console.log('所有题目：', List.concat(DXList))
+  // total.value = List.concat(DXList).length
+  const questionsCopy = [...List];
+  console.log('所有题目：', List)
+  total.value = List.length
   // 抽取题目 
   pickRandomQuestions(questionsCopy, 100)
   // console.log(list.value)
