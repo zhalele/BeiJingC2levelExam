@@ -1,7 +1,7 @@
 <template>
   <div v-if="list && !isEnd">
     <div class="mb-4">
-      <h3 style="text-align: center;">北京安全员(C2)考核</h3>
+      <h3 style="text-align: center;">北京安全员(C2)考核测试测试</h3>
     </div>
     <!-- <p> {{ count }}</p> -->
     <el-alert :title="`题目总数为${total}题，每次随机抽取100道题`" type="info" :closable="false" />
