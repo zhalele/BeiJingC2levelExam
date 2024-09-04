@@ -57,7 +57,7 @@
         <el-alert :title="`你选择的答案：${item.option.answer}`" type="error" :closable="false" />
         <div style="height: 5px;"></div>
         <el-alert :title="`正确答案：${item.trueAnswer}`" type="success" :closable="false" />
-        <!-- 单选题 ，判断题 -->
+        <!-- 单选题  ，判断题 -->
         <el-radio-group class="group-style" v-model="item.option.answer" disabled
           v-if="item.type == '单选题' || item.type == '判断题'">
           <div v-for="i in item.option.name">
