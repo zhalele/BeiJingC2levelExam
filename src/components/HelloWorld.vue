@@ -15,7 +15,7 @@
       }}</el-tag>
     <el-tag style="margin-top: 4px;" type="success" v-if="list[count].type == '判断题'" size="">{{ list[count].type
       }}</el-tag>
-    <p style="font-weight: bold; font-size: 17px">{{ count + 1 }}、{{ list[count].title }}</p>
+    <p style="font-weight: bold; ">{{ count + 1 }}、{{ list[count].title }}</p>
     <div style="margin: 10px 0 ;">你选择的答案：<span class="weight"> {{ list[count].option.answer }}</span></div>
     <!-- <el-alert :title="`正确答案：${list[count].trueAnswer}`" type="success" :closable="false" /> -->
 
