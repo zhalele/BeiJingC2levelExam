@@ -1,2 +1,2 @@
 # BeiJingC2levelExam
-BJ
+BJc
