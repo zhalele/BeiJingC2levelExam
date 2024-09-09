@@ -1,2 +1,2 @@
 # BeiJingC2levelExam
-BJc
+BJ beijing test
