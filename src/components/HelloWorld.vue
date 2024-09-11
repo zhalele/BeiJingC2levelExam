@@ -9,11 +9,11 @@
       <el-button size="large" type="success" round @click="changeO" :icon="ArrowLeft">上一题</el-button>
       <el-button size="large" type="success" round @click="changeB" :icon="ArrowRight">下一题</el-button>
     </div>
-    <el-tag style="margin-top: 4px;" v-if="list[count].type == '单选题'" type="warning" size="">{{ list[count].type
+    <el-tag style="margin-top: 4px;" v-if="list[count].type == '单选题'" type="warning" size="large">{{ list[count].type
       }}</el-tag>
-    <el-tag style="margin-top: 4px;" type="info" v-if="list[count].type == '多选题'" size="">{{ list[count].type
+    <el-tag style="margin-top: 4px;" type="info" v-if="list[count].type == '多选题'" size="large">{{ list[count].type
       }}</el-tag>
-    <el-tag style="margin-top: 4px;" type="success" v-if="list[count].type == '判断题'" size="">{{ list[count].type
+    <el-tag style="margin-top: 4px;" type="success" v-if="list[count].type == '判断题'" size="large">{{ list[count].type
       }}</el-tag>
     <p style="font-weight: bold; ">{{ count + 1 }}、{{ list[count].title }}</p>
     <div style="margin: 10px 0 ;">你选择的答案：<span class="weight"> {{ list[count].option.answer }}</span></div>
