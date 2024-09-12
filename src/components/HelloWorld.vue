@@ -1,7 +1,7 @@
 <template>
   <div v-if="list && !isEnd">
     <div class="mb-4">
-      <h3 style="text-align: center">北京安全员(C2)考核</h3>
+      <h3 style="text-align: center">北京市安全员(C2)考核</h3>
     </div>
     <el-alert :title="`题目总数为${total}题，每次随机抽取100道题`" type="info" :closable="false" />
     <div class="sub-title">
@@ -31,7 +31,7 @@
     <div style="margin: 10px 0">
       你选择的答案：<span class="weight"> {{ list[count].option.answer }}</span>
     </div>
-    <!-- <el-alert :title="`正确答案：${list[count].trueAnswer}`" type="success" :closable="false" /> -->
+    <el-alert :title="`正确答案：${list[count].trueAnswer}`" type="success" :closable="false" />
 
     <!-- 单选题,判断题题目  -->
     <el-radio-group v-model="list[count].option.answer" v-if="list[count].type == '单选题' || list[count].type == '判断题'"
@@ -107,6 +107,7 @@ import { ArrowLeft, ArrowRight, Check } from "@element-plus/icons-vue";
 import { ref, onMounted } from "vue";
 import { ElMessage } from "element-plus";
 import { List } from "./problem";
+import { PDList } from "./panduan";
 import { DXList } from "./duoxuan";
 // import { List } from './test'
 defineProps<{ msg: string }>();
@@ -131,9 +132,9 @@ const toast = (item: any) => {
 onMounted(() => {
   errList.value = [];
 
-  const questionsCopy = [...List, ...DXList];
-  console.log("所有题目：", List.concat(DXList));
-  total.value = List.concat(DXList).length;
+  const questionsCopy = [...List, ...DXList, ...PDList];
+  console.log("目前所有题目：", List.concat(DXList).concat(PDList));
+  total.value = List.concat(DXList).concat(PDList).length;
   // const questionsCopy = [...List];
   // console.log('所有题目：', List)
   // total.value = List.length
