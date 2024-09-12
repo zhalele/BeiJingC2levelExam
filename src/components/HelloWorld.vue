@@ -1,7 +1,7 @@
 <template>
   <div v-if="list && !isEnd">
-    <div class="mb-4">
-      <h3 style="text-align: center">北京市安全员(C2)考核</h3>
+    <div class="">
+      <h4 style="text-align: center">北京市安全员(C2)考核</h4>
     </div>
     <el-alert :title="`题目总数为${total}题，每次随机抽取100道题`" type="info" :closable="false" />
     <div class="sub-title">
@@ -12,26 +12,27 @@
       <el-button size="large" type="success" round @click="changeB" :icon="ArrowRight">下一题</el-button>
     </div>
     <div v-if="list[count].type == '单选题'">
-      <el-tag style="margin-top: 4px" type="warning" size="large">{{
+      <el-tag style="margin-top: 3px" type="warning" effect="dark" size="large" round>{{
         list[count].type
       }}</el-tag>
     </div>
     <div v-if="list[count].type == '多选题'">
-      <el-tag style="margin-top: 4px" type="info" size="large">{{
+      <el-tag style="margin-top: 3px" type="info" effect="dark" size="large" round>{{
         list[count].type
       }}</el-tag>
     </div>
     <div v-if="list[count].type == '判断题'">
-      <el-tag style="margin-top: 4px" type="success" size="large">{{
+      <el-tag style="margin-top: 3px" color="#006969" border-color="#006969" size="large" effect="dark" round>{{
         list[count].type
       }}</el-tag>
     </div>
 
     <p style="font-weight: bold">{{ count + 1 }}、{{ list[count].title }}</p>
-    <div style="margin: 10px 0">
+    <!-- <div style="margin: 10px 0">
       你选择的答案：<span class="weight"> {{ list[count].option.answer }}</span>
-    </div>
-    <el-alert :title="`正确答案：${list[count].trueAnswer}`" type="success" :closable="false" />
+    </div> -->
+    <el-alert :title="`你选择的答案：${list[count].option.answer}`" type="warning" center :closable="false" />
+    <!-- <el-alert show-icon :title="`正确答案：${list[count].trueAnswer}`" type="success" :closable="false" /> -->
 
     <!-- 单选题,判断题题目  -->
     <el-radio-group v-model="list[count].option.answer" v-if="list[count].type == '单选题' || list[count].type == '判断题'"
@@ -70,13 +71,16 @@
         {{ endScore }}
       </div>
     </div>
-    <div class="end-style" style="margin: 5px 0">以下为错题记录</div>
+    <div class="end-style" style="margin: 5px 0">以下为本次错题记录</div>
     <div v-if="errList">
       <div v-for="item in errList" class="box">
-        <p style="font-weight: bold; font-size: 17px">{{ item.title }}</p>
-        <el-alert :title="`你选择的答案：${item.option.answer}`" type="error" :closable="false" />
+        <div>
+          <el-tag type="info" size="" effect="dark" round>{{ item.type }}</el-tag>
+        </div>
+        <p style="font-weight: bold; ">{{ item.title }}</p>
+        <el-alert :title="`你选择的答案：${item.option.answer}`" type="error" :closable="false" show-icon />
         <div style="height: 5px"></div>
-        <el-alert :title="`正确答案：${item.trueAnswer}`" type="success" :closable="false" />
+        <el-alert :title="`正确答案：${item.trueAnswer}`" type="success" :closable="false" show-icon />
         <!-- 单选题  ，判断题 -->
         <el-radio-group class="group-style" v-model="item.option.answer" disabled
           v-if="item.type == '单选题' || item.type == '判断题'">
@@ -97,6 +101,7 @@
             </el-checkbox>
           </div>
         </el-checkbox-group>
+        <el-divider border-style="dashed" />
       </div>
     </div>
   </div>
@@ -271,7 +276,7 @@ function checkAnswers() {
 }
 
 .ep-radio__input.is-disabled+span.ep-radio__label {
-  color: #686c76;
+  color: #4d4f55;
 }
 
 .radio-label {
@@ -300,7 +305,7 @@ function checkAnswers() {
 }
 
 .ep-checkbox__input.is-disabled+span.ep-checkbox__label {
-  color: #686c76;
+  color: #4d4f55;
 }
 
 .sub-title {
