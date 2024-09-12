@@ -12,17 +12,17 @@
       <el-button size="large" type="success" round @click="changeB" :icon="ArrowRight">下一题</el-button>
     </div>
     <div v-if="list[count].type == '单选题'">
-      <el-tag style="margin-top: 3px" type="warning" effect="dark" size="large" round>{{
+      <el-tag style="margin-top: 3px" type="warning" effect="dark"   round>{{
         list[count].type
       }}</el-tag>
     </div>
     <div v-if="list[count].type == '多选题'">
-      <el-tag style="margin-top: 3px" type="info" effect="dark" size="large" round>{{
+      <el-tag style="margin-top: 3px" type="info" effect="dark"  round>{{
         list[count].type
       }}</el-tag>
     </div>
     <div v-if="list[count].type == '判断题'">
-      <el-tag style="margin-top: 3px" color="#006969" border-color="#006969" size="large" effect="dark" round>{{
+      <el-tag style="margin-top: 3px" color="#006969" border-color="#006969"  effect="dark" round>{{
         list[count].type
       }}</el-tag>
     </div>
