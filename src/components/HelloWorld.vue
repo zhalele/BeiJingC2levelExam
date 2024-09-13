@@ -12,17 +12,17 @@
       <el-button size="large" type="success" round @click="changeB" :icon="ArrowRight">下一题</el-button>
     </div>
     <div v-if="list[count].type == '单选题'">
-      <el-tag style="margin-top: 3px" type="warning" effect="dark"   round>{{
+      <el-tag style="margin-top: 3px" type="warning" effect="dark" round>{{
         list[count].type
       }}</el-tag>
     </div>
     <div v-if="list[count].type == '多选题'">
-      <el-tag style="margin-top: 3px" type="info" effect="dark"  round>{{
+      <el-tag style="margin-top: 3px" type="info" effect="dark" round>{{
         list[count].type
       }}</el-tag>
     </div>
     <div v-if="list[count].type == '判断题'">
-      <el-tag style="margin-top: 3px" color="#006969" border-color="#006969"  effect="dark" round>{{
+      <el-tag style="margin-top: 3px" color="#006969" border-color="#006969" effect="dark" round>{{
         list[count].type
       }}</el-tag>
     </div>
@@ -110,7 +110,7 @@
 <script setup lang="ts">
 import { ArrowLeft, ArrowRight, Check } from "@element-plus/icons-vue";
 import { ref, onMounted } from "vue";
-import { ElMessage } from "element-plus";
+import { ElMessage, ElNotification } from "element-plus";
 import { List } from "./problem";
 import { PDList } from "./panduan";
 import { DXList } from "./duoxuan";
@@ -206,7 +206,8 @@ function submit() {
   if (unanswered.length > 0) {
     // 如果有未答的题目，显示提示信息
     // console.log("有题目未答，具体题目编号如下：", unanswered.join(", "));
-    ElMessage.error(`有题目未答,具体题目编号如下: ${unanswered.join(", ")}`);
+    // ElMessage.error(`有题目未答,具体题目编号如下: ${unanswered.join(", ")}`);
+    ElNotification.warning(`有题目未答,具体题目编号如下: ${unanswered.join(", ")}`);
   } else {
     console.log("所有题目都已回答。");
     checkAnswers();
